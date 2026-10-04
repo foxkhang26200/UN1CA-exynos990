@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       build_type:
-        description: 'Build type (debug = Pixeldrain only, test = + GitHub release, release = + OTA XML)'
+        description: 'Build type (debug = GoFile only, test = + GitHub release, release = + OTA XML)'
         type: choice
         options:
           - debug

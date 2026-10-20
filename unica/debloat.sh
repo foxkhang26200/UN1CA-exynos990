@@ -31,29 +31,12 @@ system/lib64/libssu_keystore2.so
 system/priv-app/SsuService
 "
 
-# Recovery restoration script
-VENDOR_DEBLOAT+="
-recovery-from-boot.p
-bin/install-recovery.sh
-etc/init/vendor_flash_recovery.rc
-"
-
 # PDP apps
 SYSTEM_DEBLOAT+="
 system/preload
 "
 
 truncate -s 0 "$WORK_DIR/system/system/etc/vpl_apks_count_list.txt"
-
-# eSIM
-[[ "$TARGET_COMMON_SUPPORT_EMBEDDED_SIM" == "false" ]] && SYSTEM_DEBLOAT+="
-system/etc/permissions/privapp-permissions-com.samsung.android.app.esimkeystring.xml
-system/etc/permissions/privapp-permissions-com.samsung.euicc.xml
-system/etc/sysconfig/preinstalled-packages-com.samsung.android.app.esimkeystring.xml
-system/etc/sysconfig/preinstalled-packages-com.samsung.euicc.xml
-system/priv-app/EsimKeyString
-system/priv-app/EuiccService
-"
 
 # SmartFPSAdjuster
 [ "$TARGET_LCD_CONFIG_HFR_MODE" -lt "1" ] && SYSTEM_DEBLOAT+="
@@ -122,28 +105,8 @@ SYSTEM_DEBLOAT+="
 system/app/PlayAutoInstallConfig
 "
 
-# HwModuleTest
-SYSTEM_DEBLOAT+="
-system/app/Cameralyzer
-system/app/FactoryAirCommandManager
-system/app/FactoryCameraFB
-system/app/HMT
-system/app/WlanTest
-system/etc/default-permissions/default-permissions-com.sec.factory.cameralyzer.xml
-system/etc/permissions/privapp-permissions-com.samsung.android.providers.factory.xml
-system/etc/permissions/privapp-permissions-com.sec.facatfunction.xml
-system/priv-app/FacAtFunction
-system/priv-app/FactoryTestProvider
-"
-
 # Language packs
 SYSTEM_DEBLOAT+="$(find "$WORK_DIR/system" -type d -name "*TTSVoice*" | sed "s|$WORK_DIR/system/||g")"
-
-# LED Cover Service
-[ "$(GET_FLOATING_FEATURE_CONFIG "SEC_FLOATING_FEATURE_FRAMEWORK_CONFIG_NFC_LED_COVER_LEVEL")" -lt "30" ] && SYSTEM_DEBLOAT+="
-system/etc/permissions/privapp-permissions-com.sec.android.cover.ledcover.xml
-system/priv-app/LedCoverService
-"
 
 # Link to Windows
 # Replace full apk with stub apk to save space
@@ -224,13 +187,6 @@ system/app/MinusOnePage
 SYSTEM_DEBLOAT+="
 system/etc/permissions/signature-permissions-com.samsung.android.offline.languagemodel.xml
 system/priv-app/OfflineLanguageModel_stub
-"
-
-# Samsung Messages
-SYSTEM_DEBLOAT+="
-system/etc/default-permissions/default-permissions-com.samsung.android.messaging.xml
-system/etc/permissions/privapp-permissions-com.samsung.android.messaging.xml
-system/priv-app/SamsungMessages
 "
 
 # Samsung Pass

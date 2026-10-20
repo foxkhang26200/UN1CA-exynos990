@@ -2,6 +2,7 @@
 # Copyright (c) 2026 At30c
 # SPDX-License-Identifier: GPL-3.0-or-later
 
+# shellcheck disable=SC2034
 SKIPUNZIP=1
 
 TARGET_FIRMWARE_PATH="$(cut -d "/" -f 1 -s <<< "$TARGET_FIRMWARE")_$(cut -d "/" -f 2 -s <<< "$TARGET_FIRMWARE")"

@@ -2,11 +2,12 @@
 # Copyright (c) 2026 At30c
 # SPDX-License-Identifier: GPL-3.0-or-later
 
+# shellcheck disable=SC2034
 SKIPUNZIP=1
 
 UWB_INIT="system/etc/init/init.system.uwb.rc"
 UWB_JAR="system/framework/semuwb-service.jar"
-UWB_CALLBACK='smali/com/samsung/android/server/uwb/UwbVendorExtensionWrapper$1.smali'
+UWB_CALLBACK="smali/com/samsung/android/server/uwb/UwbVendorExtensionWrapper\$1.smali"
 VENDOR_POLICY="etc/selinux/vendor_sepolicy.cil"
 
 if [ ! -f "$WORK_DIR/vendor/etc/permissions/android.hardware.uwb.xml" ]; then

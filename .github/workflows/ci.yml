@@ -4,12 +4,12 @@ on:
   workflow_dispatch:
     inputs:
       device:
-        description: "Device Codename"
+        description: "Device codename (example: Galaxy Note20 Ultra (Exynos): c2s)"
         required: true
         default: ""
         type: string
       incremental_ota:
-        description: "Build Incremental OTA"
+        description: "Build and Implementing Incremental OTA"
         required: true
         default: false
         type: boolean
@@ -19,12 +19,12 @@ on:
         default: false
         type: boolean
       changelog:
-        description: "Changelog"
+        description: "Changelogs"
         required: false
         default: ""
         type: string
       upload:
-        description: "Upload to PixelDrain"
+        description: "Upload ROM to PixelDrain"
         required: true
         default: false
         type: boolean
@@ -142,7 +142,7 @@ jobs:
             ./scripts/build_incremental.sh
           fi
 
-      - name: Release this ROM
+      - name: Releasing this ROM
         if: ${{ inputs.release_rom }}
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}

@@ -1,3 +1,4 @@
+# shellcheck disable=SC2034
 SKIPUNZIP=1
 
 ADD_TO_WORK_DIR "$MODPATH" "system" "."

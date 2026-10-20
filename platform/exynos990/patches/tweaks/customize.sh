@@ -106,7 +106,7 @@ LOG_STEP_OUT
 
 LOG_STEP_IN "- Enabling RAM Plus Floating Feature"
 # Find floating_feature.xml anywhere in the ROM and patch it
-find "$WORK_DIR" -name "floating_feature.xml" -type f | while read xml; do
+find "$WORK_DIR" -name "floating_feature.xml" -type f | while IFS= read -r xml; do
     LOG "  - Patching: $xml"
     sed -i 's/SEC_FLOATING_FEATURE_COMMON_SUPPORT_RAM_PLUS>FALSE/SEC_FLOATING_FEATURE_COMMON_SUPPORT_RAM_PLUS>TRUE/g' "$xml"
     sed -i 's/SEC_FLOATING_FEATURE_COMMON_SUPPORT_RAM_PLUS>false/SEC_FLOATING_FEATURE_COMMON_SUPPORT_RAM_PLUS>TRUE/g' "$xml"

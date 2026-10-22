@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       device:
-        description: "Device codename (example: Galaxy Note20 Ultra (Exynos): c2s)"
+        description: "Device codename (example for Exynos 990 devices: Galaxy S20 (Exynos): x1s, Galaxy S20+ (Exynos): y2s, Galaxy S20 Ultra 5G (Exynos): z3s, Galaxy Note20 (Exynos): c1s, Galaxy Note20 Ultra (Exynos): c2s), Galaxy S20 FE (Exynos): r8s"
         required: true
         default: ""
         type: string
